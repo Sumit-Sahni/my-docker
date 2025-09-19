@@ -1,7 +1,6 @@
 # Use Node.js 18 LTS
 FROM node:18-alpine
 
-# Set working directory
 WORKDIR /app
 
 # Copy package.json and install dependencies

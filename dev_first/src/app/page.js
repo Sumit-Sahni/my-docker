@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [message, setMessage] = useState("");
-  const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 
   const callHello = async () => {
     try {
@@ -16,7 +15,9 @@ export default function Home() {
   };
   const callGoodbye = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/goodbye`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE}/api/goodbye`
+      );
       const data = await res.json();
       alert(data.message);
     } catch (err) {
