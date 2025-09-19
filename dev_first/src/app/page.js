@@ -13,18 +13,17 @@ export default function Home() {
       setMessage("Error calling hello API");
     }
   };
-  const callGoodbye = async () => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE}/api/goodbye`
-      );
-      const data = await res.json();
-      alert(data.message);
-    } catch (err) {
-      alert("Error calling goodbye API");
-    }
-  };
-
+  
+ const callGoodbye = async () => {
+  try {
+    const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5001';
+    const res = await fetch(`${apiBase}/api/goodbye`);
+    const data = await res.json();
+    alert(data.message);
+  } catch (err) {
+    alert("Error calling goodbye API");
+  }
+};
   return (
     <div className="flex flex-col items-center gap-4 p-6">
       <h1 className="text-2xl font-bold">Microservice Test</h1>
