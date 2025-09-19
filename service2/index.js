@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/goodbye", (req, res) => {
-  res.json({ message: "Saying Hello From the Service second which is running on 5001" });
+  res.json({ message: "Saying Hello From Second Microservice Image" });
 });
 
 app.listen(PORT, () => {
