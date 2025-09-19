@@ -11,7 +11,11 @@ RUN npm install
 # Copy the rest of the code
 COPY . .
 
-# Build the Next.js app
+# Pass build-time argument for NEXT_PUBLIC_API_BASE
+ARG NEXT_PUBLIC_API_BASE
+ENV NEXT_PUBLIC_API_BASE=${NEXT_PUBLIC_API_BASE}
+
+# Build the Next.js app with the correct API base baked in
 RUN npm run build
 
 # Expose port 3000
